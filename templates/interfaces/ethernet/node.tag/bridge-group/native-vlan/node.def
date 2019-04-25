@@ -1,0 +1,11 @@
+type: u32
+
+help: Native VLAN ID
+
+priority: 319
+
+syntax:expression: $VAR(@) >= 1 && $VAR(@) <= 4096 ; "$VAR(@): not a valid vlan id"
+
+create: set -x; sudo bridge vlan add dev $VAR(../../@) vid $VAR(@) pvid untagged
+
+delete: set -x; sudo bridge vlan del dev $VAR(../../@) vid $VAR(@) pvid untagged

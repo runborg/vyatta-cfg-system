@@ -1,0 +1,7 @@
+help: Enable vlan-aware bridge
+priority: 311
+create:
+  sudo ip link set dev $VAR(../@) type bridge vlan_filtering 1
+
+delete:
+  sudo ip link set dev $VAR(../@) type bridge vlan_filtering 0
